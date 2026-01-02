@@ -22,7 +22,8 @@ type WritableKeys<T> = {
 /**
  * Helper to extract the argument type of the setter for a property K in T.
  */
-// SetterArg extracts the setter parameter type for a property
+// typescript doens't allow to extract setter argument types directly
+// check: https://github.com/microsoft/TypeScript/issues/21759
 type SetterArg<T, K extends PropertyKey> = T extends {
   set [P in K](v: infer V): void;
 }
